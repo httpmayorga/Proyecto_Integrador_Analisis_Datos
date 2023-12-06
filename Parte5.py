@@ -20,7 +20,6 @@ def limpieza_y_categorizacion_datos(dataframe):
         print("No hay filas duplicadas en el DataFrame.")
 
     # Verificar y eliminar valores atípicos (ejemplo con la columna 'age')
-    # Aquí puedes implementar lógica para detectar y eliminar valores atípicos en otras columnas también
     q1 = dataframe['age'].quantile(0.25)
     q3 = dataframe['age'].quantile(0.75)
     iqr = q3 - q1
