@@ -1,38 +1,39 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 
-data = pd.read_csv('heart_failure_clinical_records_dataset.csv')
+datapd = pd.read_csv('heart_failure_clinical_records_dataset.csv')
 
-def limpieza_y_categorizacion_datos(dataframe):
+def limpieza_y_categorizacion_datos(data):
     # Verificar valores faltantes
-    faltantes = dataframe.isnull().sum().sum()
+    faltantes = data.isnull().sum().sum()
     if faltantes > 0:
         print(f"¡Hay {faltantes} valores faltantes en el DataFrame!")
     else:
         print("No hay valores faltantes en el DataFrame.")
 
     # Verificar filas duplicadas
-    duplicados = dataframe.duplicated().sum()
+    duplicados = data.duplicated().sum()
     if duplicados > 0:
         print(f"Hay {duplicados} filas duplicadas en el DataFrame.")
-        dataframe.drop_duplicates(inplace=True)
+        data.drop_duplicates(inplace=True)
     else:
         print("No hay filas duplicadas en el DataFrame.")
 
     # Verificar y eliminar valores atípicos
+    for column in data.select_dtypes(include='number').columns:
+        q1 = data[column].quantile(0.25)
+        q3 = data[column].quantile(0.75)
+        iqr = q3 - q1
+        filtro_sin_atipicos = (data[column] >= q1 - 1.5 * iqr) & (data[column] <= q3 + 1.5 * iqr)
+        data = data[filtro_sin_atipicos]
 
-    q1 = dataframe['age'].quantile(0.25)
-    q3 = dataframe['age'].quantile(0.75)
-    iqr = q3 - q1
-    filtro_sin_atipicos = (dataframe['age'] >= q1 - 1.5 * iqr) & (dataframe['age'] <= q3 + 1.5 * iqr)
-    dataframe = dataframe[filtro_sin_atipicos]
-
-    return dataframe
-
-limpieza_y_categorizacion_datos(data)
+    return data
 
 
-plt.hist(data['age'], bins=15, color='skyblue', edgecolor='black')
+data_limpia=limpieza_y_categorizacion_datos(datapd)
+
+
+plt.hist(data_limpia['age'], bins=15, color='skyblue', edgecolor='black')
 
 plt.xlabel('Edad')
 plt.ylabel('Frecuencia')
@@ -40,8 +41,8 @@ plt.title('Distribución de Edades')
 
 plt.show()
 
-male_data = data[data['sex'] == 1]  # 1 representa a hombres
-female_data = data[data['sex'] == 0]  # 0 representa a mujeres
+male_data = data_limpia[data_limpia['sex'] == 1]  # 1 representa a hombres
+female_data = data_limpia[data_limpia['sex'] == 0]  # 0 representa a mujeres
 
 # Calcular la cantidad de anémicos, diabéticos, fumadores y muertos por género
 male_counts = [
