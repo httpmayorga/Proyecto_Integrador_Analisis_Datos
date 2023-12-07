@@ -37,3 +37,21 @@ En esta etapa, se realiza lo siguiente:
 
 Parte 6: Automatización del Procesamiento de Datos
 Este apartado encapsula todas las operaciones anteriores en funciones reutilizables que procesan y categorizan los datos de forma automática, facilitando su uso en futuras iteraciones del proyecto.
+
+Parte 7: Visualización de Datos con Matplotlib
+Una vez que los datos se exportaron mediante el script de Extracción, Transformación y Carga (ETL), se realiza la visualización con Matplotlib. En esta sección, se utilizan diferentes gráficos para analizar los datos:
+
+-Histograma de Distribución de Edades: Se representa la distribución de edades mediante un histograma para comprender mejor cómo están distribuidas las edades en el conjunto de datos.
+-Histogramas Agrupados por Género: Se muestran histogramas separados para hombres y mujeres, representando la cantidad de anémicos, diabéticos, fumadores y muertos en cada grupo. Esto permite comparar las distribuciones entre géneros para cada condición médica y la mortalidad.
+
+Parte 8: Gráficas de Torta con Subplots
+Usando el mismo DataFrame, se generan gráficas de torta utilizando subplots. Cada subplot representa la distribución de:
+
+-Cantidad de Anémicos
+-Cantidad de Diabéticos
+-Cantidad de Fumadores
+-Cantidad de Muertos
+Al presentar estas distribuciones en subplots, se facilita la comparación entre las diferentes categorías, permitiendo una visualización más clara y comparativa.
+
+Parte 9: Gráfico de Dispersión 3D con Plotly
+En esta sección, se implementa un gráfico de dispersión en tres dimensiones (3D) utilizando Plotly. El objetivo es visualizar la distribución de datos reducidos en un espacio tridimensional generado por t-SNE (t-distributed Stochastic Neighbor Embedding). Los puntos en el gráfico representan observaciones del conjunto de datos, diferenciados por la clase 'Muerto' o 'Vivo' (indicado por colores), lo que permite observar la agrupación o dispersión de los datos en tres dimensiones y su relación con la clase objetivo 'DEATH_EVENT'.
