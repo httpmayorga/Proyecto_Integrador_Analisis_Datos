@@ -51,7 +51,31 @@ Usando el mismo DataFrame, se generan gráficas de torta utilizando subplots. Ca
 -Cantidad de Diabéticos
 -Cantidad de Fumadores
 -Cantidad de Muertos
+
 Al presentar estas distribuciones en subplots, se facilita la comparación entre las diferentes categorías, permitiendo una visualización más clara y comparativa.
 
 Parte 9: Gráfico de Dispersión 3D con Plotly
 En esta sección, se implementa un gráfico de dispersión en tres dimensiones (3D) utilizando Plotly. El objetivo es visualizar la distribución de datos reducidos en un espacio tridimensional generado por t-SNE (t-distributed Stochastic Neighbor Embedding). Los puntos en el gráfico representan observaciones del conjunto de datos, diferenciados por la clase 'Muerto' o 'Vivo' (indicado por colores), lo que permite observar la agrupación o dispersión de los datos en tres dimensiones y su relación con la clase objetivo 'DEATH_EVENT'.
+
+
+Parte 10: Predicción de datos de una columna
+En esta sección:
+
+Se utiliza regresión lineal para estimar valores faltantes en la columna 'age'.
+Se eliminan columnas no necesarias ('DEATH_EVENT', 'age', 'categoria_edad').
+Se ajusta un modelo para predecir edades basado en otras columnas.
+Se evalúa el rendimiento del modelo usando error cuadrático medio (MSE).
+
+Parte 11: Clasificación inicial
+Aquí:
+
+Se analiza la distribución de clases en el conjunto de datos.
+Se divide el conjunto en entrenamiento y prueba de forma estratificada.
+Se ajusta un árbol de decisión y se evalúa la precisión en el conjunto de prueba.
+
+Parte 12: Modelo de Random Forest
+En esta sección:
+
+Se entrena un modelo de Random Forest.
+Se calcula la matriz de confusión, precisión (accuracy) y F1-Score.
+Se considera si el accuracy captura completamente el rendimiento del modelo.
