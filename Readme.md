@@ -59,22 +59,19 @@ En esta sección, se implementa un gráfico de dispersión en tres dimensiones (
 
 
 Parte 10: Predicción de datos de una columna
-En esta sección:
 
 Se utiliza regresión lineal para estimar valores faltantes en la columna 'age'.
 Se eliminan columnas no necesarias ('DEATH_EVENT', 'age', 'categoria_edad').
 Se ajusta un modelo para predecir edades basado en otras columnas.
 Se evalúa el rendimiento del modelo usando error cuadrático medio (MSE).
 
-Parte 11: Clasificación inicial
-Aquí:
+Parte 11: Clasificación
 
 Se analiza la distribución de clases en el conjunto de datos.
 Se divide el conjunto en entrenamiento y prueba de forma estratificada.
 Se ajusta un árbol de decisión y se evalúa la precisión en el conjunto de prueba.
 
 Parte 12: Modelo de Random Forest
-En esta sección:
 
 Se entrena un modelo de Random Forest.
 Se calcula la matriz de confusión, precisión (accuracy) y F1-Score.
